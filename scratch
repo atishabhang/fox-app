@@ -1,0 +1,8 @@
+# all_pass = True
+# for x in rule['conditions']:
+#     if not check_condition(x, email):
+#         all_pass = False
+#         break
+#
+# if all_pass:
+#     perform_actions(rule['actions'], email)

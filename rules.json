@@ -1,0 +1,41 @@
+{
+  "rules": [
+    {
+      "predicate": "All",
+      "conditions": [
+        {
+          "field": "From",
+          "predicate": "CONTAINS",
+          "value": "atishabhang17@gmail.com"
+        },
+        {
+          "field": "Subject",
+          "predicate": "CONTAINS",
+          "value": "Test"
+        }
+      ],
+      "actions": [
+        "MARK_AS_UNREAD",
+        "MOVE_MESSAGE"
+      ]
+    },
+    {
+      "predicate": "Any",
+      "conditions": [
+        {
+          "field": "Received Date/Time",
+          "predicate": "LESS_THAN",
+          "value": "2024-03-09 00:00:00"
+        },
+        {
+          "field": "Subject",
+          "predicate": "EQUALS",
+          "value": "Bard"
+        }
+      ],
+      "actions": [
+        "MARK_AS_UNREAD"
+      ]
+    }
+  ]
+}
