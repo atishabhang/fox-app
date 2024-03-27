@@ -15,8 +15,7 @@
         }
       ],
       "actions": [
-        "MARK_AS_UNREAD",
-        "MOVE_MESSAGE"
+        "MARK_AS_UNREAD"
       ]
     },
     {
@@ -34,7 +33,8 @@
         }
       ],
       "actions": [
-        "MARK_AS_UNREAD"
+        "MARK_AS_UNREAD",
+        "MOVE_MESSAGE"
       ]
     }
   ]

@@ -66,7 +66,7 @@ def perform_actions(actions, email):
         elif action == 'MARK_AS_UNREAD':
             service.users().messages().modify(userId='me', id=email.id, body={'addLabelIds': ['UNREAD']}).execute()
         elif action == 'MOVE_MESSAGE':
-            service.users().messages().modify(userId='me', id=email.id, body={'addLabelIds': ['IMPORTANT']}).execute()
+            service.users().messages().modify(userId='me', id=email.id, body={'addLabelIds': ['CATEGORY_PROMOTIONS']}).execute()
 
 
 if __name__ == '__main__':
