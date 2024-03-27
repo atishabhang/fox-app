@@ -13,9 +13,9 @@ USER_TOKEN = 'token.json'
 
 
 def authenticate():
+    creds = None
     try:
         # Add mech to load token from file instead of every time getting from web.
-        creds = None
         if os.path.exists(USER_TOKEN):
             creds = Credentials.from_authorized_user_file(USER_TOKEN, constants.SCOPES)
             creds.refresh(Request())
@@ -25,12 +25,12 @@ def authenticate():
                     creds.refresh(Request())
                 else:
                     flow = InstalledAppFlow.from_client_secrets_file(constants.CLIENT_SECRET_FILE, constants.SCOPES)
-                    creds = flow.run_local_server(port=0)
+                    creds = flow.run_local_server(port=8085)
                     with open(USER_TOKEN, 'w') as token:
                         token.write(creds.to_json())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(constants.CLIENT_SECRET_FILE, constants.SCOPES)
-            creds = flow.run_local_server(port=0)
+            creds = flow.run_local_server(port=8085)
             with open(USER_TOKEN, 'w') as token:
                 token.write(creds.to_json())
         # return creds
