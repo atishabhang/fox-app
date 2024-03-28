@@ -8,14 +8,14 @@ from constants import constants
 Base = declarative_base()
 
 
-def drop_database():
+def drop_database(db_name):
     try:
-        os.remove(constants.DB_NAME)
+        os.remove(db_name)
     except OSError:
         pass
 
 
-def create_database():
-    engine = create_engine(f"sqlite:///{constants.DB_NAME}", echo=False)
+def create_database(db_name):
+    engine = create_engine(f"sqlite:///{db_name}", echo=False)
     Base.metadata.create_all(engine)
     return engine

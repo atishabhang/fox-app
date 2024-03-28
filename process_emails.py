@@ -11,9 +11,11 @@ import db.local_db
 
 
 def apply_rules(rules_file, emails):
+    # Read the rules file
     with open(rules_file, 'r') as f:
         rules = json.load(f)
 
+    # decide actions based on requirement from the rules.json
     for email in emails:
         for rule in rules['rules']:
             if rule['predicate'] == 'All':
@@ -76,9 +78,12 @@ if __name__ == '__main__':
     #     {'id': '18d90207491aefb9', 'sender': 'Bard <bard-noreply@google.com>', 'subject': 'Bard is now Gemini',
     #      'received_at': '2024-02-09 04:37:42.000000'},
     # ]
-    engine = db.local_db.create_database()
+
+    # Create DB object
+    engine = db.local_db.create_database(constants.DB_NAME)
     _session = sessionmaker(bind=engine)
     session = _session()
+    # Get all emails from DB
     emails_data = session.query(models.email.Email).all()
 
     file = 'rules.json'  # Path to your rules JSON file

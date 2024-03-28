@@ -11,7 +11,7 @@ from models.email import Email
 
 USER_TOKEN = 'token.json'
 
-
+# Saves the token in token.json so no need to authenicate user again, we can refresh tokens.
 def authenticate():
     creds = None
     try:
@@ -44,7 +44,7 @@ def authenticate():
 # flow = InstalledAppFlow.from_client_secrets_file(constants.CLIENT_SECRET_FILE, constants.SCOPES)
 # creds = flow.run_local_server(port=0)
 
-
+# Fetch emails using the credentials we fetch
 def fetch_emails(creds):
     service = build(constants.API_SERVICE_NAME, constants.API_VERSION, credentials=creds)
     results = service.users().messages().list(userId='me', labelIds=['INBOX']).execute()
