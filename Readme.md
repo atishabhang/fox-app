@@ -4,6 +4,7 @@
 1. Run `fetch_emails.py` to get all emails from gmail account.
 2. Run `process_emails.py` to do operations based on rules mentioned in `rules.json`
 
+Dockerfile is provided but since browser is not accessible in docker, library gives the `could not locate runnable browser python docker` 
 
 
 ### `fetch_emails.py`
@@ -29,3 +30,11 @@ struct Email{
 * Decide the operations to perform on each email by analysing `rules.json`
 * Make request to `Gmail API` using google apis.
 
+
+#
+### Running in docker
+```Dockerfile
+docker build -t happy-fox .
+docker run fox fetch_emails.py
+docker run fox process_emails.py
+```
