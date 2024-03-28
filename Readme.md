@@ -35,6 +35,6 @@ struct Email{
 ### Running in docker
 ```Dockerfile
 docker build -t happy-fox .
-docker run fox fetch_emails.py
-docker run fox process_emails.py
+docker run happy-fox fetch_emails.py
+docker run happy-fox process_emails.py
 ```
